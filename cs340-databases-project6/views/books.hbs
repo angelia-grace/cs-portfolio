@@ -1,0 +1,89 @@
+//Citation for the follow code:
+//Date: 5/24/2023
+//Adapted from nodejs-starter-app steps 3-8 to fit project 
+//https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%200%20-%20Setting%20Up%20Node.js
+
+<html>
+<head>
+    <title>Spell Books</title>
+</head>
+<body>
+    
+    <h1>Spell Books</h1>
+
+    Here you can add, update, delete, and view the shop's available books.
+
+
+    <h2>Add New Spell Book</h2>
+
+    <form id= "add-book-form-ajax">
+
+        <fieldset>
+            
+            <label for="input-book_title">Spell Book title: </label>
+                <input type="text" name="input-book_title" id="input-book_title">
+            <p></p>
+            
+            <label for="input-book_price">Book Price: </label>
+                <input type="text" name="input-book_price" id="input-book_price">
+            
+            <p></p>
+            <button type="submit">Add book to inventory</button>
+
+        </fieldset>
+
+    </form>
+    <script src="./js/add_book.js"></script>
+
+    <h2>Updating A Spell Book</h2>
+    <p>To update a book, select the title from the list and update the information</p>
+    <form id="update-book-form-ajax">
+
+        <label for="input-book_title">Book title: </label>
+        <select name="input-book_title" id="mySelect">
+            <option value="test">Select a book</option>
+            {{#each data}}
+            <option value="{{this.book_ID}}">{{this.book_title}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-book_price">Book price: </label>
+                <input type="text" name="input-book_price-update" id="input-book_price-update">
+        <input type="submit">
+
+    </form>
+
+    <script src="./js/update_book.js"></script>
+
+    <h2>Browse All Spell Books</h2>
+    
+    <table id="book-table">
+        <caption>Search Results: Spell Book Inventory</caption>
+        <thead>
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+                <th>delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each data}}
+            <tr data-value={{this.book_ID}}>
+                <td>{{this.book_ID}}</td>
+                <td>{{this.book_title}}</td>
+                <td>{{this.book_price}}</td>
+                <td><button onclick="deleteBook({{this.book_ID}})">Delete</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+    <script src="./js/delete_book.js"></script>
+
+
+</body>
+</html>

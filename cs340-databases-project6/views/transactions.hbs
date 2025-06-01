@@ -1,0 +1,232 @@
+<html>
+<head>
+    <title>Transactions</title>
+</head>
+<body>
+    
+    <h1>Transactions</h1>
+
+    Here you can add, update, delete, and view the shop's transaction history.
+
+
+
+    <h2>Add Transaction</h2>
+
+    <form id= "add-transaction-form-ajax">
+
+        <fieldset>
+            <label for="input-customer_ID">Customer: </label>
+        <select name="input-customer_ID" id="input-customer_ID">
+            <option value="input-customer_ID">Select a Customer</option>
+            {{#each customers}}
+            <option value="{{this.customer_ID}}">{{this.first_name}} {{this.last_name}}</option>
+            {{/each}}
+        </select>
+            <p></p>
+
+            <label for="input-transaction_date">Transaction date: </label>
+                <input type="text" name="input-transaction_date" id="input-transaction_date">
+            <p></p>
+            
+            <label for="input-payment_method">Payment method: </label>
+                <input type="text" name="input-payment_method" id="input-payment_method">
+            
+            <p></p>
+            <button type="submit">Add Transaction</button>
+
+        </fieldset>
+
+    </form>
+    <script src="./js/add_transaction.js"></script>
+
+    <h2>Update Transaction Information</h2>
+    <p>To update a transaction select the transaction ID from the list and update the information.</p>
+    <form id="update-transaction-form-ajax">
+
+        <label for="input-transaction_ID1">Transaction ID: </label>
+        <select name="input-transaction_ID1" id="input-transaction_ID1">
+            <option value="test">Select a transaction ID</option>
+            {{#each transactions}}
+            <option value="{{this.transaction_ID}}">{{this.transaction_ID}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-customer_name-update">Customer name: </label>
+        <select name="input-customer_name-update" id="input-customer_name-update">
+            <option value=" "></option>
+            {{#each customers}}
+            <option value="{{this.customer_ID}}">{{this.first_name}} {{this.last_name}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-transaction_date-update">Transaction date: </label>
+                <input type="text" name="input-transaction_date-update" id="input-transaction_date-update">
+        <label for="input-payment_method-update">Payment Method: </label>
+                <input type="text" name="input-payment_method-update" id="input-payment_method-update">
+        <input type="submit">
+
+    </form>
+
+    <script src="./js/update_transaction.js"></script>
+
+    <table id="transaction-table">
+        <caption>Search Results: Transactions</caption>
+        <thead>
+            <tr>
+                {{#each transactions.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+                <th>delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each transactions}}
+            <tr data-value={{this.transaction_ID}}>
+                <td>{{this.transaction_ID}}</td>
+                <td>{{this.customer_ID}}</td>
+                <td>{{this.transaction_date}}</td>
+                <td>{{this.payment_method}}</td>
+                <td><button onclick="deleteTransaction({{this.transaction_ID}})">Delete</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+    <script src="./js/delete_transaction.js"></script>
+
+    <h2>Add Potion Transaction</h2>
+
+    <form id= "add-potion-transaction-form-ajax">
+
+        <fieldset>
+            <label for="input-transaction_ID">Transaction ID: </label>
+        <select name="input-transaction_ID" id="input-transaction_ID">
+            <option value="input-transaction_ID">Select a Transaction</option>
+            {{#each transactions}}
+            <option value="{{this.transaction_ID}}">{{this.transaction_ID}}</option>
+            {{/each}}
+        </select>
+            <label for="input-potion_ID">Potion: </label>
+        <select name="input-potion_ID" id="input-potion_ID">
+            <option value="input-potion_ID">Select a Potion</option>
+            {{#each potions}}
+            <option value="{{this.potion_ID}}">{{this.potion_name}}</option>
+            {{/each}}
+        </select>
+            <p></p>
+
+            <label for="input-potion_price">Price: </label>
+                <input type="text" name="input-potion_price" id="input-potion_price">
+            <p></p>
+            
+            <label for="input-potion-quantity">quantity: </label>
+                <input type="text" name="input-potion-quantity" id="input-potion-quantity">
+            
+            <p></p>
+            <button type="submit">Add Potion Transaction</button>
+
+        </fieldset>
+
+    </form>
+    <script src="./js/add_potion_transaction.js"></script>
+
+    <h2>Browse All Potion Transactions</h2>
+    
+       <table id="potion_transaction-table">
+        <caption>Search Results: Potion Transactions</caption>
+        <thead>
+            <tr>
+                {{#each potion_transactions.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+                
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each potion_transactions}}
+            <tr data-value={{this.transaction_ID}}>
+                <td>{{this.transaction_ID}}</td>
+                <td>{{this.potion_ID}}</td>
+                <td>{{this.potion_price}}</td>
+                <td>{{this.quantity}}</td>
+                
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+    
+    <h2>Add Book Transaction</h2>
+
+    <form id= "add-book-transaction-form-ajax">
+
+        <fieldset>
+        <label for="input-booktransaction_ID">Transaction ID: </label>
+        <select name="input-booktransaction_ID" id="input-booktransaction_ID">
+            <option value="input-booktransaction_ID">Select a Transaction</option>
+            {{#each transactions}}
+            <option value="{{this.transaction_ID}}">{{this.transaction_ID}}</option>
+            {{/each}}
+        </select>
+            <label for="input-book_ID">book: </label>
+        <select name="input-book_ID" id="input-book_ID">
+            <option value="input-book_ID">Select a Book</option>
+            {{#each books}}
+            <option value="{{this.book_ID}}">{{this.book_title}}</option>
+            {{/each}}
+        </select>
+            <p></p>
+
+            <label for="input-book_price">Price: </label>
+                <input type="text" name="input-book_price" id="input-book_price">
+            <p></p>
+            
+            <label for="input-book-quantity">quantity: </label>
+                <input type="text" name="input-book-quantity" id="input-book-quantity">
+            
+            <p></p>
+            <button type="submit">Add Book Transaction</button>
+
+        </fieldset>
+
+    </form>
+    <script src="./js/add_book_transaction.js"></script>
+
+    <h2>Browse All Spell Book Transaction</h2>
+    
+           <table id="book_transaction-table">
+        <caption>Search Results: Spell Book Transactions</caption>
+        <thead>
+            <tr>
+                {{#each book_transactions.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each book_transactions}}
+            <tr data-value={{this.transaction_ID}}>
+                <td>{{this.transaction_ID}}</td>
+                <td>{{this.book_ID}}</td>
+                <td>{{this.book_price}}</td>
+                <td>{{this.quantity}}</td>
+                
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+    
+    
+
+</body>
+</html>

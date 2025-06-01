@@ -1,0 +1,118 @@
+//Citation for the follow code:
+//Date: 5/24/2023
+//Adapted from nodejs-starter-app steps 3-8 to fit project 
+//https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%200%20-%20Setting%20Up%20Node.js
+
+<html>
+<head>
+    <title>Potion Recipes</title>
+</head>
+<body>
+    
+    <h1>Potion Recipes</h1>
+
+    Here you can add, update, delete, and view the shop's available Potion Recipes.
+
+    <h2>Add New Potion Recipe</h2>
+
+    <form id= "add-recipe-form-ajax">
+
+        <fieldset>
+            <label for="input-potion_name">Potion Name: </label>
+        <select name="input-potion_name" id="input-potion_name">
+            <option value="input-potion_name">Select a Potion</option>
+            {{#each potions}}
+            <option value="{{this.potion_ID}}">{{this.potion_name}}</option>
+            {{/each}}
+        </select>
+            <p></p>
+
+            <label for="input-ingredient_name">Ingredient: </label>
+        <select name="input-ingredient_name" id="input-ingredient_name">
+            <option value="ingredient_name">Select an Ingredient</option>
+            {{#each ingredients}}
+            <option value="{{this.ingredient_ID}}">{{this.ingredient_name}}</option>
+            {{/each}}
+        </select>
+            <p></p>
+            
+            <label for="input-ingredient_quantity">Ingredient Quantity: </label>
+                <input type="text" name="input-ingredient_quantity" id="input-ingredient_quantity">
+            
+            <p></p>
+            <button type="submit">Add Potion Recipe</button>
+
+        </fieldset>
+
+    </form>
+    <script src="./js/add_recipe.js"></script>
+
+    <h2>Updating A Potion Recipe</h2>
+    <p>To update a potion recipe, select the recipe ID from the list and change the potion, ingredient, and quantity</p>
+    <form id="update-recipe-form-ajax">
+        <label for="input-potion_recipe-update">Potion Recipe ID: </label>
+        <select name="input-potion_recipe-update" id="input-potion_recipe-update">
+            <option value="input-potion_recipe-update">Select a Potion Recipe</option>
+            {{#each data}}
+            <option value="{{this.potion_recipes_ID}}">{{this.potion_recipes_ID}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-potion_name-update">Potion Name: </label>
+        <select name="input-potion_name-update" id="input-potion_name-update">
+            <option value="input-potion_name-update">Select a Potion</option>
+            {{#each potions}}
+            <option value="{{this.potion_ID}}">{{this.potion_name}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-ingredient_name-update">Ingredient: </label>
+        <select name="input-ingredient_name-update" id="input-ingredient_name-update">
+            <option value="input-ingredient_name-update">Select an Ingredient</option>
+            {{#each ingredients}}
+            <option value="{{this.ingredient_ID}}">{{this.ingredient_name}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-ingredient_quantity-update">Ingredient Quantity: </label>
+                <input type="text" name="input-ingredient_quantity-update" id="input-ingredient_quantity-update">
+        
+        <input type="submit">
+
+    </form>
+
+    <script src="./js/update_recipe.js"></script>
+
+    <h2>Browse All Potion Recipes</h2>
+    
+    <table id="recipe-table">
+        <caption>Search Results: Potion Recipes</caption>
+        <thead>
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+                <th>delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each data}}
+            <tr data-value={{this.potion_recipes_ID}}>
+                <td>{{this.potion_recipes_ID}}</td>
+                <td>{{this.potion_ID}}</td>
+                <td>{{this.ingredient_ID}}</td>
+                <td>{{this.quantity}}</td>
+                <td><button onclick="deleteRecipe({{this.potion_recipes_ID}})">Delete</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+    <script src="./js/delete_recipe.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+//Citation for the follow code:
+//Date: 5/24/2023
+//Adapted from nodejs-starter-app steps 3-8 to fit project 
+//https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%200%20-%20Setting%20Up%20Node.js
+
+<html>
+<head>
+    <title>Potions</title>
+</head>
+<body>
+    
+    <h1>Potions</h1>
+
+    Here you can add, update, delete, and view the shop's available potions.
+
+    <h2>Add New Potion</h2>
+
+    <form id= "add-potions-form-ajax">
+
+        <fieldset>
+            
+            <label for="input-potion_name">Potion name: </label>
+                <input type="text" name="input-potion_name" id="input-potion_name">
+            <p></p>
+            
+            <label for="input-potion_effect">Potion effect: </label>
+                <input type="text" name="input-potion_effect" id="input-potion_effect">
+            
+            <p></p>
+            <label for="input-potion_color">Potion color: </label>
+                <input type="text" name="input-potion_color" id="input-potion_color">
+            <p></p>
+
+            <label for="input-potion_price">Potion price: </label>
+                <input type="text" name="input-potion_price" id="input-potion_price">
+            
+            <p></p>
+            <button type="submit">Add potion to inventory</button>
+
+        </fieldset>
+
+    </form>
+    <script src="./js/add_potion.js"></script>
+
+    <h2>Updating A Potion</h2>
+    <p>To update a potion, select the name from the list and update the information</p>
+    <form id="update-potion-form-ajax">
+
+        <label for="input-potion_name">Potion name: </label>
+        <select name="input-potion_name" id="mySelect">
+            <option value="test">Select a Potion</option>
+            {{#each data}}
+            <option value="{{this.potion_ID}}">{{this.potion_name}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-potion_effect">Potion effect: </label>
+                <input type="text" name="input-potion_effect-update" id="input-potion_effect-update">
+
+        <label for="input-potion_color">Potion color: </label>
+                <input type="text" name="input-potion_color-update" id="input-potion_color-update">
+
+        <label for="input-potion_price">Potion price: </label>
+                <input type="text" name="input-potion_price-update" id="input-potion_price-update">
+        <input type="submit">
+
+    </form>
+
+    <script src="./js/update_potion.js"></script>
+
+    <h2>Browse All Potions</h2>
+    
+    <table id="potions-table">
+        <caption>Search Results: Potions Inventory</caption>
+        <thead>
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+                <th>delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each data}}
+            <tr data-value={{this.potion_ID}}>
+                <td>{{this.potion_ID}}</td>
+                <td>{{this.potion_name}}</td>
+                <td>{{this.potion_effect}}</td>
+                <td>{{this.potion_color}}</td>
+                <td>{{this.potion_price}}</td>
+                <td><button onclick="deletePotion({{this.potion_ID}})">Delete</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+    <script src="./js/delete_potion.js"></script>
+
+
+</body>
+</html>

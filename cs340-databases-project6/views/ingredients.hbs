@@ -1,0 +1,88 @@
+//Citation for the follow code:
+//Date: 5/24/2023
+//Adapted from nodejs-starter-app steps 3-8 to fit project 
+//https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%200%20-%20Setting%20Up%20Node.js
+
+<html>
+<head>
+    <title>Ingredients</title>
+</head>
+<body>
+    
+    <h1>Ingredients</h1>
+
+    Here you can add, update, delete, and view the ingredients needed for potions.
+
+    <h2>Add New Ingredient</h2>
+
+    <form id= "add-ingredient-form-ajax">
+
+        <fieldset>
+            
+            <label for="input-ingredient_name">Ingredient Name: </label>
+                <input type="text" name="input-ingredient_name" id="input-ingredient_name">
+            <p></p>
+            
+            <label for="input-ingredient_source">Ingredient Source: </label>
+                <input type="text" name="input-ingredient_source" id="input-ingredient_source">
+            
+            <p></p>
+            <button type="submit">Add ingredient</button>
+
+        </fieldset>
+
+    </form>
+    <script src="./js/add_ingredient.js"></script>
+
+    <h2>Updating An Ingredient</h2>
+    <p>To update an ingredient, select the name from the list and update the information</p>
+    <form id="update-ingredient-form-ajax">
+
+        <label for="input-ingredient_name">Ingredient Name: </label>
+        <select name="input-ingredient_name" id="mySelect">
+            <option value="test">Select an ingredient</option>
+            {{#each data}}
+            <option value="{{this.ingredient_ID}}">{{this.ingredient_name}}</option>
+            {{/each}}
+        </select>
+
+        <label for="input-ingredient_source">Ingredient source: </label>
+                <input type="text" name="input-ingredient_source-update" id="input-ingredient_source-update">
+        <input type="submit">
+
+    </form>
+
+    <script src="./js/update_ingredient.js"></script>
+
+    <h2>Browse All Ingredients</h2>
+    
+    <table id="ingredient-table">
+        <caption>Search Results: Ingredient Inventory</caption>
+        <thead>
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+                <th>delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each data}}
+            <tr data-value={{this.ingredient_ID}}>
+                <td>{{this.ingredient_ID}}</td>
+                <td>{{this.ingredient_name}}</td>
+                <td>{{this.ingredient_source}}</td>
+                <td><button onclick="deleteIngredient({{this.ingredient_ID}})">Delete</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+    <script src="./js/delete_ingredient.js"></script>
+
+
+</body>
+</html>
