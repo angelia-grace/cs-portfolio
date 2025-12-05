@@ -8,8 +8,11 @@ CS 291 and CS 325 demonstrate my knowledge of **data structures, algorithms, and
 
 My **professional and technical writing samples** include progress reports, annotated project demonstrations, design mockups, code reviews, documentation for source code, and other samples such as instruction manuals. 
 
+My **Senior Capstone Project,** which you can find in the file SeniorCapstone-MalwareAnalysis-FinalReport.pdf, is a malware analysis report that took a full year of building a virtual network, running malware samples, researching their components and reporting on their behavior, working as part of a project team. 
+
 
 # More About Me
+
 
 ### Academic Excellence
 
