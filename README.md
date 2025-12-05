@@ -1,4 +1,4 @@
-# Hello, and welcome to My Computer Science ePortfolio!
+# Hello, and welcome to my Computer Science Portfolio!
 
 My name is Angelia-Grace Martin. I am a recent graduate of Oregon State University with a Bachelor of Science in Computer Science. This portfolio showcases several of my capstone projects that I completed during the course of my degree, as well as personal projects that I have completed on my own time to hone and demonstrate my expertise in Computer Science. This is not the sum total of the projects that I have coded, only some of the best examples! 
 
