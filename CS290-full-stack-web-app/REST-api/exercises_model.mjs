@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 
 mongoose.connect(
-    'mongodb+srv://marticad:k4tieled3cky@cluster0.otq2vz5.mongodb.net/exercises_db?retryWrites=true&w=majority',
+    'credential here',
     { useNewUrlParser: true }
 );
 
@@ -47,5 +47,6 @@ const deleteExercise = async (_id) => {
 db.once("open", () => {
     console.log("Successfully connected to MongoDB using Mongoose!");
 });
+
 
 export{createExercise, findOneExercise, findAllExercises, updateExercise, deleteExercise};
