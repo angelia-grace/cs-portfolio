@@ -16,7 +16,7 @@ My **Senior Capstone Project,** which you can find in the file SeniorCapstone-Ma
 
 ### Academic Excellence
 
-As a recipient of the prestigious National Merit Award and the Finley Academic Excellence Scholarship, I have been achieving academic excellence since my teenage years. During my degree, I worked multiple jobs, cared for sick family members during times of crisis, and financially supported my household, staying on track to graduate and maintaining a strong GPA all the while. I even completed my degree requirements early, finishing out my program with a half course load. 
+As a recipient of the prestigious National Merit Scholar Award and the Finley Academic Excellence Scholarship, I have been achieving academic excellence since my high school years. During my degree, I worked multiple jobs, cared for sick family members during times of crisis, and financially supported my household, staying on track to graduate and maintaining a strong GPA all the while. I even completed my degree requirements early, finishing out my program with a half course load. 
 
 
 ### Professional Background
