@@ -2,6 +2,8 @@
 
 My name is Angelia-Grace Martin. I am a recent graduate of Oregon State University with a Bachelor of Science in Computer Science. This portfolio showcases several of my capstone projects that I completed during the course of my degree, as well as personal projects that I have completed on my own time to hone and demonstrate my expertise in Computer Science. **This is not the sum total** of the projects that I have coded, only some of the **best examples!** 
 
+**Some of my coursework cannot be included publicly due to my school's academic integrity policy. To see examples of my work in C, Assembly, and unit testing with Python, please reach out via the email or phone provided in my application!**
+
 In the folders for my CS 290 and CS 340 capstone projects, you will find source code, demos, and reports for **full stack web applications** which demonstrate my familiarity with both **relational and non-relational databases.** 
 
 CS 291 and CS 325 demonstrate my knowledge of **data structures, algorithms, and algorithm analysis.** My MinPuzzle.py recursive algorithm solves a maze using the strategy of recursive backtracking!
